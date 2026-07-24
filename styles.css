@@ -70,3 +70,13 @@
   .highlights article{padding:12px 9px}
   .high-badge{width:29px;height:29px}
 }
+
+.search-clear{width:32px;height:32px;border:1px solid #dfe4ea;border-radius:50%;background:#eef1f5;color:#536177;font-size:22px;line-height:1;cursor:pointer;flex:none}.search-clear[hidden]{display:none}
+.division-leaders{padding:80px max(5vw,25px);background:var(--cream);scroll-margin-top:20px}.division-leaders[hidden]{display:none}.leaders-heading{max-width:1180px;margin:0 auto 34px;display:flex;align-items:end;justify-content:space-between;gap:24px}.leaders-heading h2{font-family:"Barlow Condensed";font-size:54px;line-height:.9;text-transform:uppercase;margin:0}.leaders-heading>div>p:last-child{color:var(--muted);font-size:13px}.leaders-close{border:0;border-radius:6px;background:var(--navy);color:#fff;padding:12px 17px;font-size:12px;font-weight:700;cursor:pointer}.leader-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.leader-card{background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 8px 28px #18233b0d}.leader-card-title{padding:18px 21px;background:var(--navy);color:#fff}.leader-card-title span{font-size:9px;color:var(--coral);font-weight:700;text-transform:uppercase;letter-spacing:.12em}.leader-card-title h3{font-family:"Barlow Condensed";font-size:26px;text-transform:uppercase;margin:3px 0 0}.leader-card ol{list-style:none;margin:0;padding:0}.leader-card li+li{border-top:1px solid var(--line)}.leader-card li button{width:100%;display:grid;grid-template-columns:32px 1fr auto;gap:11px;align-items:center;border:0;background:#fff;padding:13px 18px;text-align:left;color:var(--ink);cursor:pointer}.leader-card li button:hover{background:#f8f9fb}.leader-rank{font-family:"Barlow Condensed";font-size:20px;color:var(--coral)}.leader-card strong,.leader-card small{display:block}.leader-card strong{font-size:12px}.leader-card small{font-size:9px;color:var(--muted);margin-top:3px}.leader-card b{font-family:"Barlow Condensed";font-size:22px}.leader-empty{padding:20px;color:var(--muted);font-size:12px}
+@media(max-width:650px){
+  .site-header nav.open{display:flex;position:absolute;top:68px;left:0;right:0;background:var(--navy);padding:8px 18px 16px;flex-direction:column;gap:0;box-shadow:0 14px 24px #0005}
+  .site-header nav.open a{padding:13px 4px;border-bottom:1px solid #ffffff17;font-size:14px}
+  .menu-button{min-width:44px}
+  .hero-search input,.filter-search input,.selects select{font-size:16px}
+  .division-leaders{padding:58px 14px}.leaders-heading{align-items:flex-start;flex-direction:column;margin-bottom:24px}.leaders-heading h2{font-size:42px}.leader-grid{grid-template-columns:1fr;gap:14px}.leader-card-title{padding:15px 17px}.leader-card li button{padding:12px 15px}
+}

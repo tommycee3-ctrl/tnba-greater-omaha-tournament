@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <header class="site-header">
@@ -16,12 +16,12 @@
       <span class="header-ball" aria-hidden="true"><i></i><b></b><em></em></span>
       <span><strong>Mockingbird Lanes</strong><small>Omaha, Nebraska</small></span>
     </a>
-    <nav aria-label="Main navigation">
+    <nav id="mainNav" aria-label="Main navigation">
       <a class="active" href="#standings">Standings</a>
       <a href="#division-highs">Division Highs</a>
       <a href="#about">Tournament Info</a>
     </nav>
-    <button class="menu-button" aria-label="Open menu">Menu</button>
+    <button class="menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">Menu</button>
   </header>
 
   <main>
@@ -39,7 +39,7 @@
         <div class="hero-search">
           <span class="search-label" aria-hidden="true">SEARCH</span>
           <input id="globalSearch" type="search" placeholder="Search a bowler or team..." aria-label="Search a bowler or team">
-          <kbd>/</kbd>
+          <button id="clearGlobalSearch" class="search-clear" type="button" aria-label="Clear search" hidden>&times;</button>
         </div>
         <div class="hero-meta">
           <span>Omaha, Nebraska</span>
@@ -64,6 +64,18 @@
       <article><span class="high-badge women">W</span><div><small>Women's high series</small><strong>658</strong><p>Heather Erdei</p></div></article>
       <article><span class="high-badge senior">55+</span><div><small>Senior high game</small><strong>257</strong><p>Mark Jensen</p></div></article>
       <article><span class="high-badge senior">55+</span><div><small>Senior high series</small><strong>710</strong><p>Mark Jensen</p></div></article>
+    </section>
+
+    <section id="division-leaders" class="division-leaders" aria-labelledby="divisionLeadersTitle" hidden>
+      <div class="leaders-heading">
+        <div>
+          <p class="eyebrow dark">First-week leaders</p>
+          <h2 id="divisionLeadersTitle">Division highs</h2>
+          <p>Current top five entries in every event division.</p>
+        </div>
+        <button id="closeDivisionLeaders" class="leaders-close" type="button">Back to standings</button>
+      </div>
+      <div id="divisionLeaderGrid" class="leader-grid"></div>
     </section>
 
     <section id="standings" class="standings-section">
@@ -117,6 +129,6 @@
     <div id="drawerContent"></div>
   </aside>
   <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
