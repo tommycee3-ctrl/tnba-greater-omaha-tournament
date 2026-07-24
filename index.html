@@ -99,12 +99,11 @@
           <div class="filter-search"><span aria-hidden="true">FILTER</span><input id="tableSearch" type="search" placeholder="Filter this leaderboard"></div>
           <div class="selects">
             <select id="divisionFilter" aria-label="Division"><option value="All">All divisions</option><option>Men</option><option>Women</option><option>Mixed</option><option>Senior</option></select>
-            <select id="scoreFilter" aria-label="Scoring"><option value="Handicap">Handicap</option><option value="Scratch">Scratch</option></select>
           </div>
         </div>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Place</th><th>Bowler / entry</th><th>Division</th><th>Games</th><th>Scratch</th><th>HDCP</th><th>Total</th><th></th></tr></thead>
+            <thead><tr><th>Place</th><th>Bowler / entry</th><th>Division</th><th>Games</th><th><button class="sort-button" data-sort="Scratch">Scratch Total</button></th><th><button class="sort-button active" data-sort="Handicap">Handicap Total <span aria-hidden="true">&darr;</span></button></th><th></th></tr></thead>
             <tbody id="standingsBody"></tbody>
           </table>
         </div>
@@ -129,7 +128,7 @@
     <div id="drawerContent"></div>
   </aside>
   <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" hidden>&uarr;</button>
-  <script src="data.js"></script>
-  <script src="app.js?v=10"></script>
+  <script src="data.js?v=11"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>

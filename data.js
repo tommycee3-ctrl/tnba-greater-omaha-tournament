@@ -101,5 +101,52 @@ load('Senior','Senior',`
 Mark Jensen|18|257,249,204|710|728
 Winston Husband|27|184,181,168|533|560
 Jensen/Husband|45|403,377,423|1203|1248|Mark Jensen;Winston Husband`);
-window.TOURNAMENT_DATA=rows.map((x,i)=>({...x,id:i+1,initials:x.name.split(/[\s/]+/).map(n=>n[0]).slice(0,2).join('').toUpperCase(),city:x.members.join(' / '),color:['#ef6a5b','#477bbd','#df9c34','#41a487','#785bb3','#d05b86','#3c879d'][i%7]}));
+const breakdowns={};
+const breakdown=(event,name,text)=>breakdowns[`${event}|${name}`]=text.trim().split('\n').map(line=>{const [bowler,games,hdcp='0']=line.split('|');const scores=games.split(',').map(Number),scratch=scores.reduce((a,b)=>a+b,0);return{bowler,games:scores,scratch,hdcp:+hdcp,total:scratch+(+hdcp)}});
+breakdown('Teams','Team A. B.',`
+Don Birkentall|188,178,159|24
+Aaron Byars|276,223,221
+Rich Abboud|244,211,226
+Kevin Driscoll|247,220,228
+Jayson Peters|277,257,248`);
+breakdown('Teams',"Danno's Crew",`
+Adam Wheeler|166,160,190|57
+Joe Muhs|211,220,190|69
+Robert Wright|219,214,182|51
+Scott Allen|179,180,177|54
+Dan Beardsley|202,215,188|27`);
+breakdown('Teams','Half & Half',`
+Nichole Smelser|244,158,233|60
+AJ Bruckner|219,164,224|12
+Gunner Bosselman|238,227,246
+Casey Montgomery|247,258,246
+Brad Gilkerson|196,264,266`);
+breakdown('Teams','STL-O',`
+Kym Hickman|220,203,163|84
+Lamar Conner|206,159,191|90
+Kaleb Hansen|227,160,229
+Danny Horton|248,244,231
+Jimmy Cotton|257,203,212`);
+breakdown('Teams','Greater Greensboro #1',`
+Janay Coles|158,166,148|159
+Anthony Guilford|279,169,162|42
+James Smith|201,179,189|69
+Theresa Jamison|178,165,222|27
+Thomas Coles|179,172,155|24`);
+breakdown('Doubles','Quade/Quade',`John Quade|187,214,256\nJared Quade|244,158,163|117`);
+breakdown('Doubles','Allen/Wright',`Scott Allen|194,224,167|54\nRobert Wright|211,202,212|51`);
+breakdown('Doubles','Bruckner/Che',`Anthony Bruckner|160,234,198|12\nYue Che|242,194,200|63`);
+breakdown('Doubles','Terrill/Moats',`TK Terrill|191,181,166\nRyan Moats|258,244,234`);
+breakdown('Doubles','Jensen/Husband',`Mark Jensen|215,191,212|18\nWinston Husband|188,186,211|27`);
+breakdown('Doubles','Casella/Casella',`Tom Casella|213,191,176|42\nJames Casella|209,172,179|48`);
+breakdown('Doubles','Byars/Driscoll',`Aaron Byars|181,238,233\nKevin Driscoll|186,210,180`);
+breakdown('Doubles','Hansen/Bockert',`Kaleb Hansen|244,194,212\nJoe Bockert|184,199,167|15`);
+breakdown('Doubles','Bosselman/Montgomery',`Gunner Bosselman|205,191,259\nCasey Montgomery|173,168,185`);
+breakdown('Doubles','Birkentall/Abboud',`Don Birkentall|225,198,152|24\nRich Abboud|205,198,169`);
+breakdown('Doubles','Gilkerson/Wilkes',`Brad Gilkerson|171,202,180\nKyle Wilkes|177,243,194`);
+breakdown('Doubles','Smith/Coles',`James Smith|160,188,147|69\nThomas Coles|189,164,167|24`);
+breakdown('Doubles','Wolford/Smelser',`Tara Wolford|129,144,150|114\nNichole Smelser|210,213,232|60`);
+breakdown('Doubles','Coles/Jamison',`Janay Coles|153,133,164|159\nTheresa Jamison|192,158,215|27`);
+breakdown('Doubles','Wolford/Taylor',`Tara Wolford|165,114,143|114\nCarlene Taylor|188,202,201`);
+window.TOURNAMENT_DATA=rows.map((x,i)=>({...x,id:i+1,initials:x.name.split(/[\s/]+/).map(n=>n[0]).slice(0,2).join('').toUpperCase(),city:x.members.join(' / '),color:['#ef6a5b','#477bbd','#df9c34','#41a487','#785bb3','#d05b86','#3c879d'][i%7],memberBreakdown:breakdowns[`${x.event}|${x.name}`]||(x.event==='Singles'?[{bowler:x.name,games:x.games,scratch:x.scratch,hdcp:x.hdcp,total:x.total}]:null)}));
 window.TOURNAMENT_INFO={location:'Mockingbird Lanes / 4870 South 96th Street, Omaha, NE',dates:'July 17-19 and July 24-26, 2026',entry:'$45 per event / $10 All Events',rules:'USBC and TNBA membership required. Teams are capped at 1125. Handicap is 90% of the difference from 210.',senior:'The Senior Division is for bowlers age 55 and over. Senior teams have four bowlers and a 900 cap.',squads:['Fri, Jul 17 - Mixed Doubles: 6:00 PM, 7:30 PM, 9:00 PM if needed','Sat, Jul 18 - Any event: 10:00 AM, 2:00 PM','Sun, Jul 19 - Any event: 10:00 AM, 2:00 PM','Fri, Jul 24 - Any event: 3:00 PM, 7:00 PM','Sat, Jul 25 - Any event: 9:00 AM, 1:00 PM','Sun, Jul 26 - Any event: 9:00 AM, 1:00 PM'],special:'Special squad: 7:00 PM Friday, July 24. A $150 handicapped high-series prize will be paid to one male and one female bowler.',contact:'Omaha TNBA Facebook page / omahatnba@yahoo.com / Julius: (402) 669-4952',leaders:'Marcellus Green, President / Julius Mickel, Tournament Director'};
