@@ -92,3 +92,6 @@ body.leaders-open{overflow:hidden}
   .leaders-heading{padding-right:46px}
   .leaders-close{top:12px;right:12px;width:42px;height:42px;font-size:27px}
 }
+
+.back-to-top{position:fixed;z-index:24;right:22px;bottom:22px;width:46px;height:46px;border:0;border-radius:50%;background:var(--coral);color:#fff;font-size:25px;line-height:1;box-shadow:0 8px 24px #07122455;cursor:pointer}.back-to-top[hidden]{display:none}.back-to-top:hover,.back-to-top:focus-visible{background:#d94f43;transform:translateY(-2px)}
+@media(max-width:650px){.back-to-top{right:14px;bottom:16px;width:43px;height:43px;font-size:23px}}
