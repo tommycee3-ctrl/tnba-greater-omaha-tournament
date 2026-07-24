@@ -24,10 +24,12 @@ function openProfile(id){
   drawer.setAttribute('aria-hidden','false');
 }
 document.querySelectorAll('.event-tabs button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelector('.event-tabs .active').classList.remove('active');btn.classList.add('active');eventName=btn.dataset.event;division.value='All';render();}));[tableSearch,division,scoreFilter].forEach(el=>el.addEventListener('input',()=>{scoring=scoreFilter.value;render();}));body.addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)openProfile(b.dataset.id)});
+let searchJumpTimer;
 function syncClearButton(){clearGlobalSearch.hidden=!globalSearch.value}
-globalSearch.addEventListener('input',()=>{syncClearButton();eventName='All Bowlers';document.querySelector('.event-tabs .active').classList.remove('active');document.querySelector('[data-event="All Bowlers"]').classList.add('active');tableSearch.value=globalSearch.value;render();});
-globalSearch.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();globalSearch.blur();document.querySelector('#standings').scrollIntoView({behavior:'smooth'})}});
-clearGlobalSearch.addEventListener('click',()=>{globalSearch.value='';tableSearch.value='';syncClearButton();render();globalSearch.focus()});
+function jumpToSearchResults(){globalSearch.blur();document.querySelector('#standings').scrollIntoView({behavior:'smooth'})}
+globalSearch.addEventListener('input',()=>{clearTimeout(searchJumpTimer);syncClearButton();eventName='All Bowlers';document.querySelector('.event-tabs .active').classList.remove('active');document.querySelector('[data-event="All Bowlers"]').classList.add('active');tableSearch.value=globalSearch.value;render();if(globalSearch.value.trim())searchJumpTimer=setTimeout(jumpToSearchResults,1200)});
+globalSearch.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();clearTimeout(searchJumpTimer);jumpToSearchResults()}});
+clearGlobalSearch.addEventListener('click',()=>{clearTimeout(searchJumpTimer);globalSearch.value='';tableSearch.value='';syncClearButton();render();globalSearch.focus()});
 menuButton.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'Close':'Menu'});
 mainNav.addEventListener('click',()=>{mainNav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='Menu'});
 function renderDivisionLeaders(){
