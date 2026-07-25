@@ -101,7 +101,7 @@ load('Senior','Senior',`
 Mark Jensen|18|257,249,204|710|728
 Winston Husband|27|184,181,168|533|560
 Jensen/Husband|45|403,377,423|1203|1248|Mark Jensen;Winston Husband`);
-load("Today's Action",'Open',`
+load('Final Weekend','Open',`
 Frank Garner|0|197,163,167,188,154,168|1037|1037
 James Watford|0|178,201,173,182,175,235|1144|1144
 Duane Johnson|0|212,192,181,165,166,191|1107|1107
