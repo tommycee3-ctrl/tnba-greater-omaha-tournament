@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
   <header class="site-header">
@@ -17,8 +17,9 @@
       <span><strong>Mockingbird Lanes</strong><small>Omaha, Nebraska</small></span>
     </a>
     <nav id="mainNav" aria-label="Main navigation">
-      <a class="active" href="#standings">Standings</a>
-      <a href="#division-highs">Division Highs</a>
+      <a class="active" href="#">Home</a>
+      <a href="#top-five">Top 5</a>
+      <a id="openFullTournament" href="#full-tournament">Full Tournament</a>
       <a href="#about">Tournament Info</a>
     </nav>
     <button class="menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">Menu</button>
@@ -66,22 +67,22 @@
       <article><span class="high-badge senior">55+</span><div><small>Senior high series</small><strong>813</strong><p>Lonnie Boyd</p></div></article>
     </section>
 
-    <section id="division-leaders" class="division-leaders" aria-labelledby="divisionLeadersTitle" hidden>
+    <section id="top-five" class="home-leaders" aria-labelledby="divisionLeadersTitle">
       <div class="leaders-heading">
         <div>
           <p class="eyebrow dark">Final tournament leaders</p>
-          <h2 id="divisionLeadersTitle">Division highs</h2>
+          <h2 id="divisionLeadersTitle">Top 5 by division</h2>
           <p>Final top five entries in every event division.</p>
         </div>
-        <button id="closeDivisionLeaders" class="leaders-close" type="button" aria-label="Close division highs">&times;</button>
+        <a class="full-results-button" href="#full-tournament">View full tournament &rarr;</a>
       </div>
       <div id="divisionLeaderGrid" class="leader-grid"></div>
     </section>
 
-    <section id="standings" class="standings-section">
+    <section id="full-tournament" class="standings-section full-tournament-view" hidden>
       <div class="section-heading">
         <div><p id="leaderboardLabel" class="eyebrow dark">Final tournament leaderboard</p><h2>Tournament standings</h2></div>
-        <p>Unofficial final standings &bull; July 2026.</p>
+        <button id="closeFullTournament" class="full-results-close" type="button" aria-label="Close full tournament">&times;</button>
       </div>
 
       <div class="event-tabs" role="tablist">
@@ -128,6 +129,6 @@
   </aside>
   <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" hidden>&uarr;</button>
   <script src="data.js?v=15"></script>
-  <script src="app.js?v=15"></script>
+  <script src="app.js?v=16"></script>
 </body>
 </html>
