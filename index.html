@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#09152d">
+  <meta name="theme-color" content="#05070c">
   <title>TNBA Omaha Senate Tournament</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#">
-      <span class="header-ball" aria-hidden="true"><i></i><b></b><em></em></span>
-      <span><strong>Mockingbird Lanes</strong><small>Omaha, Nebraska</small></span>
+      <img src="tnba-logo-clean.png" alt="">
+      <span><strong>TNBA Omaha Senate</strong><small>39th Cornhusker Classic</small></span>
     </a>
     <nav id="mainNav" aria-label="Main navigation">
-      <a class="active" href="#">Home</a>
-      <a href="#top-five">Top 5</a>
+      <a class="active" href="#">Dashboard</a>
+      <a href="#top-five">Leaders</a>
       <a id="openFullTournament" href="#full-tournament">Full Tournament</a>
       <a href="#about">Tournament Info</a>
     </nav>
@@ -27,64 +27,61 @@
 
   <main>
     <section class="hero">
+      <div class="lane-grid" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow">Official tournament results</p>
-        <div class="hero-lockup">
+        <p class="eyebrow"><span></span> Final tournament standings</p>
+        <div class="hero-title">
           <img src="tnba-logo-clean.png" alt="The National Bowling Association logo">
           <div>
-            <h1>TNBA<br>Omaha Senate</h1>
-            <h2>39th Annual Cornhusker Classic</h2>
+            <p>TNBA Omaha Senate</p>
+            <h1>39th Annual<br><strong>Cornhusker Classic</strong></h1>
           </div>
         </div>
-        <p class="hero-description">Search every bowler, follow every event, and explore game-by-game results from the Cornhusker Classic.</p>
-        <div class="hero-search">
-          <span class="search-label" aria-hidden="true">SEARCH</span>
-          <input id="globalSearch" type="search" placeholder="Search a bowler or team..." aria-label="Search a bowler or team">
-          <button id="clearGlobalSearch" class="search-clear" type="button" aria-label="Clear search" hidden>&times;</button>
+        <div class="live-scoreboard">
+          <div><small>Status</small><strong><i></i> Final standings</strong></div>
+          <div class="score"><small>Tournament high game</small><strong>299</strong><span>Jacob White</span></div>
+          <div><small>Field</small><strong id="bowlerCount">224 bowlers</strong></div>
         </div>
-        <div class="hero-meta">
-          <span>Omaha, Nebraska</span>
-          <span>6 result categories</span>
-          <span id="bowlerCount">57 bowlers</span>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="lane-lines"></div>
-        <div class="score-card">
-          <small>TOURNAMENT HIGH GAME</small>
-          <strong>299</strong>
-          <span>Jacob White</span>
+        <div class="hero-actions">
+          <div class="hero-search">
+            <span aria-hidden="true"></span>
+            <input id="globalSearch" type="search" placeholder="Find a bowler or team..." aria-label="Search a bowler or team">
+            <button id="clearGlobalSearch" class="search-clear" type="button" aria-label="Clear search" hidden>&times;</button>
+          </div>
+          <a class="primary-button" href="#full-tournament">Explore full tournament <b>&rarr;</b></a>
         </div>
       </div>
     </section>
 
-    <section id="division-highs" class="highlights division-highs" aria-label="Division high scores">
-      <article><span class="high-badge">M</span><div><small>Men's high game</small><strong>299</strong><p>Jacob White</p></div></article>
-      <article><span class="high-badge">M</span><div><small>Men's high series</small><strong>792</strong><p>Isaiah Smith</p></div></article>
-      <article><span class="high-badge women">W</span><div><small>Women's high game</small><strong>279</strong><p>Lisa Hurst</p></div></article>
-      <article><span class="high-badge women">W</span><div><small>Women's high series</small><strong>733</strong><p>Lisa Hurst</p></div></article>
-      <article><span class="high-badge senior">55+</span><div><small>Senior high game</small><strong>279</strong><p>Lonnie Boyd</p></div></article>
-      <article><span class="high-badge senior">55+</span><div><small>Senior high series</small><strong>813</strong><p>Lonnie Boyd</p></div></article>
+    <section class="score-strip" aria-label="Division high scores">
+      <article><span>M</span><small>Men's high game</small><strong>299</strong><p>Jacob White</p></article>
+      <article><span>M</span><small>Men's high series</small><strong>792</strong><p>Isaiah Smith</p></article>
+      <article><span>W</span><small>Women's high game</small><strong>279</strong><p>Lisa Hurst</p></article>
+      <article><span>W</span><small>Women's high series</small><strong>733</strong><p>Lisa Hurst</p></article>
+      <article><span>55+</span><small>Senior high game</small><strong>279</strong><p>Lonnie Boyd</p></article>
+      <article><span>55+</span><small>Senior high series</small><strong>813</strong><p>Lonnie Boyd</p></article>
     </section>
 
     <section id="top-five" class="home-leaders" aria-labelledby="divisionLeadersTitle">
-      <div class="leaders-heading">
+      <div class="section-heading leaders-heading">
         <div>
-          <p class="eyebrow dark">Final tournament leaders</p>
+          <p class="eyebrow"><span></span> Leaderboard dashboard</p>
           <h2 id="divisionLeadersTitle">Top 5 by division</h2>
-          <p>Final top five entries in every event division.</p>
+          <p>Handicap standings from the final tournament results.</p>
         </div>
-        <a class="full-results-button" href="#full-tournament">View full tournament &rarr;</a>
+        <a class="secondary-button" href="#full-tournament">Explore full tournament <b>&rarr;</b></a>
       </div>
       <div id="divisionLeaderGrid" class="leader-grid"></div>
     </section>
 
     <section id="full-tournament" class="standings-section full-tournament-view" hidden>
       <div class="section-heading">
-        <div><p id="leaderboardLabel" class="eyebrow dark">Final tournament leaderboard</p><h2>Tournament standings</h2></div>
+        <div>
+          <p id="leaderboardLabel" class="eyebrow"><span></span> Final tournament leaderboard</p>
+          <h2>Tournament standings</h2>
+        </div>
         <button id="closeFullTournament" class="full-results-close" type="button" aria-label="Close full tournament">&times;</button>
       </div>
-
       <div class="event-tabs" role="tablist">
         <button class="active" data-event="All Events">All Events</button>
         <button data-event="Singles">Singles</button>
@@ -93,10 +90,9 @@
         <button data-event="Teams">Teams</button>
         <button data-event="Senior">Senior</button>
       </div>
-
       <div class="table-shell">
         <div class="toolbar">
-          <div class="filter-search"><span aria-hidden="true">FILTER</span><input id="tableSearch" type="search" placeholder="Filter this leaderboard"></div>
+          <div class="filter-search"><span aria-hidden="true"></span><input id="tableSearch" type="search" placeholder="Filter this leaderboard"></div>
           <div class="selects">
             <select id="divisionFilter" aria-label="Division"><option value="All">All divisions</option><option>Men</option><option>Women</option><option>Mixed</option><option>Senior</option></select>
           </div>
@@ -113,7 +109,7 @@
 
     <section id="about" class="tournament-info">
       <div class="section-heading info-heading">
-        <div><p class="eyebrow dark">Official details</p><h2>Tournament information</h2></div>
+        <div><p class="eyebrow"><span></span> Event operations</p><h2>Tournament information</h2></div>
         <p>39th Annual Cornhusker Classic</p>
       </div>
       <div id="tournamentInfo" class="info-grid"></div>
@@ -121,14 +117,13 @@
   </main>
 
   <footer><span>TNBA Omaha Senate</span><span>Unofficial final standings &bull; July 2026</span></footer>
-
   <div id="overlay" class="overlay" hidden></div>
   <aside id="profileDrawer" class="drawer" aria-hidden="true">
-    <button id="closeDrawer" class="close" aria-label="Close profile">X</button>
+    <button id="closeDrawer" class="close" aria-label="Close profile">&times;</button>
     <div id="drawerContent"></div>
   </aside>
   <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" hidden>&uarr;</button>
   <script src="data.js?v=15"></script>
-  <script src="app.js?v=16"></script>
+  <script src="app.js?v=20"></script>
 </body>
 </html>
